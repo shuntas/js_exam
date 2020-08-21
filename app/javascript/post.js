@@ -8,6 +8,10 @@ function post() {
     XHR.responseType = "json";
     XHR.send(formData);
     XHR.onload = () => {
+      if (XHR.status != 200) {
+        alert(`Error ${XHR.status}: ${XHR.statusText}`);
+        return null;
+      }
       const item = XHR.response.article;
       const contentsArea = document.getElementById("contents_area");
       const articleText = document.getElementById("article_text");
@@ -18,12 +22,6 @@ function post() {
       contentsArea.insertAdjacentHTML("afterbegin", HTML);
 
       articleText.value = "";
-
-      if (XHR.status != 200) {
-        alert(`Error ${XHR.status}: ${XHR.statusText}`);
-      } else {
-        return null;
-      }
     };
 
     XHR.onerror = () => {
