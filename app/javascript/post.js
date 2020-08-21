@@ -24,10 +24,6 @@ function post() {
       articleText.value = "";
     };
 
-    XHR.onerror = () => {
-      alert("Request failed");
-    };
-
     e.preventDefault();
   })
 }
