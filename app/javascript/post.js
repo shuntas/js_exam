@@ -26,7 +26,7 @@ function post() {
       }
     };
 
-    XHR.onerror = function () {
+    XHR.onerror = () => {
       alert("Request failed");
     };
 
